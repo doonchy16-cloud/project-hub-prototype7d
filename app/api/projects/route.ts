@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
       location: body.location,
       lat: typeof body.lat === "number" ? body.lat : undefined,
       lng: typeof body.lng === "number" ? body.lng : undefined,
-      privacy: body.privacy === "private" ? "private" : "public",
+      privacy: "public",
     });
 
     return NextResponse.json({ ok: true, projectId }, { status: 201 });

@@ -1,0 +1,16 @@
+.next/
+node_modules/
+
+# Local runtime and generated files
+.server/*.log
+*.log
+*.tmp
+*.temp
+tsconfig.tsbuildinfo
+
+# Environment and machine-specific files
+.env
+.env.*
+!.env.example
+Thumbs.db
+Desktop.ini

@@ -1,9 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getProjectById, serializeMongo } from "@/lib/server/repositories";
 
-export async function GET(_request: NextRequest, { params }: { params: Promise<{ projectId: string }> }) {
-  const { projectId } = await params;
-  const project = await getProjectById(projectId);
+type RouteContext = {
+  params: Promise<{
+    projectid: string;
+  }>;
+};
+
+export async function GET(_request: NextRequest, context: RouteContext) {
+  const { projectid } = await context.params;
+  const project = await getProjectById(projectid);
+
   if (!project) {
     return NextResponse.json({ error: "Project not found." }, { status: 404 });
   }
